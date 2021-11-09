@@ -1,0 +1,25 @@
+2021-11-09 23:30:37.833  INFO 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Starting AddressBookApp using Java 16.0.2 on LAPTOP-PRASH with PID 180560 (C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot\target\classes started by impra in C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot)
+2021-11-09 23:30:37.833 DEBUG 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Running with Spring Boot v2.5.6, Spring v5.3.12
+2021-11-09 23:30:37.833  INFO 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : No active profile set, falling back to default profiles: default
+2021-11-09 23:30:40.601  WARN 180560 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-09 23:30:42.267  WARN 180560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-09 23:30:42.812  WARN 180560 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-09 23:30:43.132  INFO 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Started AddressBookApp in 6.244 seconds (JVM running for 7.881)
+2021-11-09 23:30:43.146  INFO 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : AddressBook App Started in COMMON Environment
+2021-11-09 23:30:43.146  INFO 180560 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : AddressBook App DB User is root
+2021-11-09 23:40:21.095  INFO 80180 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Starting AddressBookApp using Java 16.0.2 on LAPTOP-PRASH with PID 80180 (C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot\target\classes started by impra in C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot)
+2021-11-09 23:40:21.100 DEBUG 80180 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Running with Spring Boot v2.5.6, Spring v5.3.12
+2021-11-09 23:40:21.100  INFO 80180 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : No active profile set, falling back to default profiles: default
+2021-11-09 23:40:23.580  WARN 80180 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-09 23:40:25.590  WARN 80180 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-09 23:40:26.019  WARN 80180 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-09 23:40:26.290  INFO 80180 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Started AddressBookApp in 5.934 seconds (JVM running for 7.444)
+2021-11-09 23:41:00.590  INFO 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Starting AddressBookApp using Java 16.0.2 on LAPTOP-PRASH with PID 58512 (C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot\target\classes started by impra in C:\Users\impra\IdeaProjects\AddressBookAppSpringBoot)
+2021-11-09 23:41:00.590 DEBUG 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Running with Spring Boot v2.5.6, Spring v5.3.12
+2021-11-09 23:41:00.590  INFO 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : No active profile set, falling back to default profiles: default
+2021-11-09 23:41:02.880  WARN 58512 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-09 23:41:04.145  WARN 58512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-09 23:41:04.489  WARN 58512 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-09 23:41:04.711  INFO 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : Started AddressBookApp in 4.852 seconds (JVM running for 6.296)
+2021-11-09 23:41:04.711  INFO 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : AddressBook App Started in COMMON Environment
+2021-11-09 23:41:04.719  INFO 58512 --- [restartedMain] c.b.addressbookapp.AddressBookApp        : AddressBook App DB User is root
