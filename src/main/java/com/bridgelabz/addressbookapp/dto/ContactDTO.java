@@ -1,13 +1,19 @@
 package com.bridgelabz.addressbookapp.dto;
 
-public class ContactDTO {
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 
+public class ContactDTO {
+    @Pattern(regexp = "^[A-Z]{1,}[a-zA-z\\s]{2,}$")
     public String firstName;
+    @Pattern(regexp = "^[A-Z]{1,}[a-zA-z\\s]{2,}$")
     public String lastName;
     public String address;
     public String state;
     public String city;
+    @Pattern(regexp = "^[0-9]{3}\\s{0,1}[0-9]{3}$")
     public String zip;
+    @Pattern(regexp = "^^[0-9]{2}?[\\s,-]{0,1}[7-9]{1}[0-9]{9}$")
     public String phone;
 
     public ContactDTO(String firstName, String lastName, String address, String state, String city, String zip,
@@ -21,7 +27,6 @@ public class ContactDTO {
         this.zip = zip;
         this.phone = phone;
     }
-
 
 
     @Override
