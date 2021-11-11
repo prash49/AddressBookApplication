@@ -7,7 +7,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @ToString
@@ -28,5 +32,10 @@ public class ContactDTO {
     public String zip;
     @Pattern(regexp = "^[[+]?[0-9]{2}?[\\s,-]?]?[7-9]{1}[0-9]{9}$", message = "Invalid Phone number")
     public String phone;
-
+    @JsonFormat(pattern = "dd MMM yyyy")
+    @PastOrPresent(message = "add todays date")
+    public LocalDate registerDate;
+    @JsonFormat(pattern = "dd MMM yyyy")
+    @PastOrPresent(message = "add todays date")
+    public LocalDate updateDate;
 }
