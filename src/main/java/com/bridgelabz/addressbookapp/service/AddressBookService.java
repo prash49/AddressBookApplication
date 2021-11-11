@@ -20,46 +20,41 @@ public class AddressBookService implements IAddressBookService {
 
     List<Contact> contactList = new ArrayList<>();
 
+
     @Override
     public List<Contact> getContact() {
 
-        return contactList;
+        return addressBookRepository.findAll();
     }
 
     @Override
     public Contact getContactById(int contactId) {
-        return contactList.stream().filter(contact -> contact.getContactId() == contactId).findFirst()
-                .orElseThrow(() -> new AddressBookException("Contact not found"));
+        return addressBookRepository.findById(contactId)
+                .orElseThrow(() -> new AddressBookException("Contact with id " + contactId + " does not exist..!"));
     }
 
     @Override
     public Contact createContact(ContactDTO contactDTO) {
-        Contact contact = null;
-        contact = new Contact(contactDTO);
-        log.debug("Contact data Created: " + contact.toString());
-        contactList.add(contact);
+        Contact contact = new Contact(contactDTO);
         return addressBookRepository.save(contact);
     }
 
     @Override
     public Contact updateContact(int contactId, ContactDTO contactDTO) {
         Contact contact = this.getContactById(contactId);
-        contact.setFirstName(contactDTO.firstName);
-        contact.setLastName(contactDTO.lastName);
-        contact.setAddress(contactDTO.address);
-        contact.setState(contactDTO.state);
-        contact.setCity(contactDTO.city);
-        contact.setZip(contactDTO.zip);
-        contact.setPhone(contactDTO.phone);
-        contact.setRegisterDate(contactDTO.registerDate);
-        contact.setUpdateDate(contactDTO.updateDate);
-        contactList.set(contactId - 1, contact);
-        return contact;
+        contact.updateContact(contactDTO);
+        return addressBookRepository.save(contact);
     }
 
     @Override
     public void deleteContact(int contactId) {
+        Contact contact = this.getContactById(contactId);
+        addressBookRepository.delete(contact);
+    }
 
-        contactList.remove(contactId - 1);
+    @Override
+    public String deleteAllAddressBookData() {
+        addressBookRepository.deleteAll();
+        return "Successfully deleted all the Contacts from AddressBook";
     }
 }

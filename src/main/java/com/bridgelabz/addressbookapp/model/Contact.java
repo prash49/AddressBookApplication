@@ -29,17 +29,18 @@ public class Contact {
     private LocalDate updateDate;
 
 
-    public Contact(int contactId, ContactDTO contactDTO) {
-        this.contactId = contactId;
+    public Contact(ContactDTO contactDTO) {
+
         this.updateContact(contactDTO);
     }
 
-
-    public Contact(ContactDTO contactDTO) {
+    public Contact() {
 
     }
 
-    private void updateContact(ContactDTO contactDTO) {
+
+    public void updateContact(ContactDTO contactDTO) {
+        this.contactId = contactId;
         this.firstName = contactDTO.firstName;
         this.lastName = contactDTO.lastName;
         this.address = contactDTO.address;
