@@ -4,6 +4,7 @@ import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import com.bridgelabz.addressbookapp.dto.ResponseDTO;
 import com.bridgelabz.addressbookapp.model.Contact;
 import com.bridgelabz.addressbookapp.service.IAddressBookService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +15,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/addressbookservice")
+@Slf4j
 public class AddressBookController {
 
     @Autowired
     private IAddressBookService addressbookservice;
 
-    @RequestMapping(value = { "", "/", "/get" })
+    @RequestMapping(value = {"", "/", "/get"})
     public ResponseEntity<ResponseDTO> getContactData() {
+
         List<Contact> contactList = addressbookservice.getContact();
         ResponseDTO response = new ResponseDTO("Get call success", contactList);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
@@ -35,9 +38,9 @@ public class AddressBookController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDTO> addContactData(
-            @Valid @RequestBody ContactDTO contactDTO) {
+    public ResponseEntity<ResponseDTO> addContactData(@Valid @RequestBody ContactDTO contactDTO) {
         Contact contact = addressbookservice.createContact(contactDTO);
+        log.debug("Address Book DTO: " + contactDTO.toString());
         ResponseDTO response = new ResponseDTO("Created contact data for", contact);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
 
@@ -45,8 +48,9 @@ public class AddressBookController {
 
     @PutMapping("/update/{contactId}")
     public ResponseEntity<ResponseDTO> updateContactData(@PathVariable("contactId") int contactId,
-                                                      @Valid   @RequestBody ContactDTO contactDTO) {
+                                                         @Valid @RequestBody ContactDTO contactDTO) {
         Contact contact = addressbookservice.updateContact(contactId, contactDTO);
+        log.debug("AddressBook Contact After Update " + contact.toString());
         ResponseDTO response = new ResponseDTO("Updated contact data for", contact);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
 
