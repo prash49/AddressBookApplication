@@ -70,4 +70,65 @@ public class AddressBookController {
         ResponseDTO respDTO = new ResponseDTO("Deleteall:", message);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
+
+
+    @GetMapping("/city/{city}")
+    public ResponseEntity<ResponseDTO> getContactByCity(@PathVariable String city) {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.getContactByCity(city);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/firstname/{firstName}")
+    public ResponseEntity<ResponseDTO> getContactByFirstName(@PathVariable String firstName) {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.getContactByFirstName(firstName);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By first name is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/lastname/{lastName}")
+    public ResponseEntity<ResponseDTO> getContactByLastName(@PathVariable String lastName) {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.getContactByLastName(lastName);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By last name is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/zip/{zip}")
+    public ResponseEntity<ResponseDTO> getContactByZip(@PathVariable String zip) {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.getContactByPincode(zip);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By Pincode is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/sortbyname")
+    public ResponseEntity<ResponseDTO> sortByName() {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.sortByName();
+        ResponseDTO response = new ResponseDTO("Get Call  is Successful Sort By Name: ", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortbycity")
+    public ResponseEntity<ResponseDTO> sortByCity() {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.sortByCity();
+        ResponseDTO response = new ResponseDTO("Get Call  is Successful Sort By City: ", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortbypincode")
+    public ResponseEntity<ResponseDTO> sortByPincode() {
+        List<Contact> contactList = null;
+        contactList = addressbookservice.sortByPincode();
+        ResponseDTO response = new ResponseDTO("Get Call  is Successful Sort By PinCode: ", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
 }
+

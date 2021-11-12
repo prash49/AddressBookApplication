@@ -16,16 +16,15 @@ public class Contact {
     private int contactId;
     @Column(name = "First_Name")
     private String firstName;
-
     private String lastName;
     private String address;
-    private String state;
     private String city;
-
+    private String state;
     private String zip;
     private String phone;
 
     private LocalDate registerDate;
+
     private LocalDate updateDate;
 
 
