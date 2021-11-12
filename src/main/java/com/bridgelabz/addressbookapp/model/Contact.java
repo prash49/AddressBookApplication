@@ -4,7 +4,9 @@ import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import lombok.Data;
 
 import javax.persistence.*;
+
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "addressbook")
@@ -23,23 +25,19 @@ public class Contact {
     private String zip;
     private String phone;
 
-    private LocalDate registerDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date registerDate;
 
-    private LocalDate updateDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateDate;
 
-
-    public Contact(ContactDTO contactDTO) {
-
-        this.updateContact(contactDTO);
-    }
 
     public Contact() {
-
     }
 
 
     public void updateContact(ContactDTO contactDTO) {
-        this.contactId = contactId;
+//        this.contactId = contactId;
         this.firstName = contactDTO.firstName;
         this.lastName = contactDTO.lastName;
         this.address = contactDTO.address;
@@ -47,11 +45,20 @@ public class Contact {
         this.state = contactDTO.state;
         this.zip = contactDTO.zip;
         this.phone = contactDTO.phone;
-        this.registerDate = contactDTO.registerDate;
-        this.updateDate = contactDTO.updateDate;
-
-
+        this.updateDate = new Date(System.currentTimeMillis());
     }
 
 
+    public void createContact(ContactDTO contactDTO) {
+//        this.contactId = contactId;
+        this.registerDate = new Date(System.currentTimeMillis());
+        this.firstName = contactDTO.firstName;
+        this.lastName = contactDTO.lastName;
+        this.address = contactDTO.address;
+        this.city = contactDTO.city;
+        this.state = contactDTO.state;
+        this.zip = contactDTO.zip;
+        this.phone = contactDTO.phone;
+
+    }
 }

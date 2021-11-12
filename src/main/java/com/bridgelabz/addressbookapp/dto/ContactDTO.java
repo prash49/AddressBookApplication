@@ -32,10 +32,10 @@ public class ContactDTO {
     public String zip;
     @Pattern(regexp = "^[[+]?[0-9]{2}?[\\s,-]?]?[7-9]{1}[0-9]{9}$", message = "Invalid Phone number")
     public String phone;
-    @JsonFormat(pattern = "dd MMM yyyy")
-    @PastOrPresent(message = "add todays date")
-    public LocalDate registerDate;
-    @JsonFormat(pattern = "dd MMM yyyy")
-    @PastOrPresent(message = "add todays date")
-    public LocalDate updateDate;
+//    @JsonFormat(pattern = "dd MMM yyyy")
+//    @PastOrPresent(message = "add todays date")
+//    public LocalDate registerDate;
+//    @JsonFormat(pattern = "dd MMM yyyy")
+//    @PastOrPresent(message = "add todays date")
+//    public LocalDate updateDate;
 }
