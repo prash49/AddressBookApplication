@@ -4,11 +4,14 @@ import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.Contact;
 import com.bridgelabz.addressbookapp.repository.AddressBookRepository;
+import com.bridgelabz.addressbookapp.util.TokenUtil;
+import lombok.experimental.Tolerate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -16,6 +19,9 @@ public class AddressBookService implements IAddressBookService {
 
     @Autowired
     private AddressBookRepository addressBookRepository;
+
+    @Autowired
+    TokenUtil tokenUtil;
 
 
     @Override
@@ -89,5 +95,27 @@ public class AddressBookService implements IAddressBookService {
     @Override
     public List<Contact> sortByPincode() {
         return addressBookRepository.sortByPincode();
+    }
+
+    @Override
+    public Optional<Contact> getData(String token) {
+        Long id = tokenUtil.decodeToken(token);
+        Optional<Contact> contactCheck = addressBookRepository.findById(Math.toIntExact(id));
+        if (contactCheck.isPresent()) {
+            Optional<Contact> contactData = addressBookRepository.findById(Math.toIntExact(id));
+            return contactData;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Contact> getAllContacts(String token) {
+        Long id = tokenUtil.decodeToken(token);
+        Optional<Contact> contactCheck = addressBookRepository.findById(Math.toIntExact((id)));
+        if (contactCheck.isPresent()) {
+            List<Contact> contactList = addressBookRepository.findAll();
+            return contactList;
+        }
+        return null;
     }
 }
