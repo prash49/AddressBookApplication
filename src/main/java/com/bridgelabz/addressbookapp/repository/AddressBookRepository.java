@@ -27,4 +27,5 @@ public interface AddressBookRepository extends JpaRepository<Contact, Integer> {
 
     @Query(value = "select * from addressbook order by zip;", nativeQuery = true)
     List<Contact> sortByPincode();
+
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -25,11 +26,11 @@ public class Contact {
     private String zip;
     private String phone;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date registerDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updateDate;
+    private LocalDateTime registerDate;
+
+
+    private LocalDateTime updateDate;
 
 
     public Contact() {
@@ -37,7 +38,6 @@ public class Contact {
 
 
     public void updateContact(ContactDTO contactDTO) {
-//        this.contactId = contactId;
         this.firstName = contactDTO.firstName;
         this.lastName = contactDTO.lastName;
         this.address = contactDTO.address;
@@ -45,13 +45,13 @@ public class Contact {
         this.state = contactDTO.state;
         this.zip = contactDTO.zip;
         this.phone = contactDTO.phone;
-        this.updateDate = new Date(System.currentTimeMillis());
+        this.updateDate = LocalDateTime.now();
     }
 
 
     public void createContact(ContactDTO contactDTO) {
-//        this.contactId = contactId;
-        this.registerDate = new Date(System.currentTimeMillis());
+
+        this.registerDate = LocalDateTime.now();
         this.firstName = contactDTO.firstName;
         this.lastName = contactDTO.lastName;
         this.address = contactDTO.address;
