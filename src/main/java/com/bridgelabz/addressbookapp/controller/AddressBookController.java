@@ -176,7 +176,7 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> getContactByFirstNameByRepo(@PathVariable String firstName) {
         List<Contact> contactList = null;
         contactList = repository.getByFirstName(firstName);
-        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By First Name using JPA Derived Query is Successful", contactList);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
     }
 
@@ -185,7 +185,7 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> getContactByLastNameByRepo(@PathVariable String lastName) {
         List<Contact> contactList = null;
         contactList = repository.getByLastName(lastName);
-        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By LastName using JPA Derived Query  is Successful", contactList);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
     }
 
@@ -194,7 +194,7 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> getContactByZipByRepo(@PathVariable String zip) {
         List<Contact> contactList = null;
         contactList = repository.getByZip(zip);
-        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By Zip using JPA Derived Query is Successful", contactList);
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
     }
 
