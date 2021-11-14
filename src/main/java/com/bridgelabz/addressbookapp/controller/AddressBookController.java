@@ -4,6 +4,7 @@ import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import com.bridgelabz.addressbookapp.dto.ResponseDTO;
 import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.Contact;
+import com.bridgelabz.addressbookapp.repository.AddressBookRepository;
 import com.bridgelabz.addressbookapp.service.IAddressBookService;
 import com.bridgelabz.addressbookapp.util.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,9 @@ public class AddressBookController {
 
     @Autowired
     private IAddressBookService addressbookservice;
+
+    @Autowired
+    AddressBookRepository repository;
 
     @Autowired
     TokenUtil tokenUtil;
@@ -158,6 +162,42 @@ public class AddressBookController {
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
 
     }
+
+
+    @GetMapping("/getcontactbycity/{city}")
+    public ResponseEntity<ResponseDTO> getContactByCityName(@PathVariable String city) {
+        List<Contact> contactList = null;
+        contactList = repository.getByCity(city);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/getcontactbyfirstname/{firstname}")
+    public ResponseEntity<ResponseDTO> getContactByFirstNameByRepo(@PathVariable String firstName) {
+        List<Contact> contactList = null;
+        contactList = repository.getByFirstName(firstName);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getcontactbylastname/{lastname}")
+    public ResponseEntity<ResponseDTO> getContactByLastNameByRepo(@PathVariable String lastName) {
+        List<Contact> contactList = null;
+        contactList = repository.getByLastName(lastName);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getcontactbyzip/{zip}")
+    public ResponseEntity<ResponseDTO> getContactByZipByRepo(@PathVariable String zip) {
+        List<Contact> contactList = null;
+        contactList = repository.getByZip(zip);
+        ResponseDTO response = new ResponseDTO("Get Call Contact List By city is Successful", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
 
 }
 

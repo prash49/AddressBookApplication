@@ -28,4 +28,11 @@ public interface AddressBookRepository extends JpaRepository<Contact, Integer> {
     @Query(value = "select * from addressbook order by zip;", nativeQuery = true)
     List<Contact> sortByPincode();
 
+    List<Contact> getByCity(String city);
+
+    List<Contact> getByFirstName(String firstName);
+
+    List<Contact> getByLastName(String lastName);
+
+    List<Contact> getByZip(String zip);
 }
